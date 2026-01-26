@@ -2,6 +2,7 @@ import multer from "multer";
 import path from "path";
 import fs from "fs";
 import { v4 as uuidv4 } from "uuid";
+import { UPLOAD_ERRORS } from "../constants/errors.js";
 
 const uploadDir = path.join(process.cwd(), "uploads");
 
@@ -25,7 +26,7 @@ const fileFilter = (req, file, cb) => {
   if (allowedTypes.includes(file.mimetype)) {
     cb(null, true);
   } else {
-    cb(new Error("지원하지 않는 파일 형식입니다"), false);
+    cb(new Error(UPLOAD_ERRORS.UNSUPPORTED_TYPE), false);
   }
 };
 
