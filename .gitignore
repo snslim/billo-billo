@@ -9,5 +9,8 @@ dist
 build
 coverage
 
+# uploads
+uploads/
+
 # misc
 .DS_Store
