@@ -1,8 +1,9 @@
 import { Router } from "express";
 import multer from "multer";
+import mongoose from "mongoose";
 import fs from "fs";
 import { upload } from "../middlewares/upload.js";
-import { UPLOAD_ERRORS } from "../constants/errors.js";
+import { UPLOAD_ERRORS, DOCUMENT_ERRORS } from "../constants/errors.js";
 import Document from "../models/Document.js";
 
 const router = Router();
@@ -40,8 +41,29 @@ router.post("/", upload.single("file"), async (req, res) => {
   }
 });
 
-router.get("/:documentId", (req, res) => {
-  res.json({ success: true, data: { ok: true } });
+router.get("/:documentId", async (req, res) => {
+  const { documentId } = req.params;
+
+  if (!mongoose.Types.ObjectId.isValid(documentId)) {
+    return res.status(400).json({
+      success: false,
+      message: DOCUMENT_ERRORS.INVALID_ID
+    });
+  }
+
+  const document = await Document.findById(documentId);
+
+  if (!document) {
+    return res.status(404).json({
+      success: false,
+      message: DOCUMENT_ERRORS.NOT_FOUND
+    });
+  }
+
+  res.json({
+    success: true,
+    data: document
+  });
 });
 
 router.use((err, req, res, next) => {
