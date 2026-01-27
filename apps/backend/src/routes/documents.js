@@ -3,10 +3,13 @@ import multer from "multer";
 import mongoose from "mongoose";
 import fs from "fs";
 import { upload } from "../middlewares/upload.js";
+import { requireApiKey } from "../middlewares/requireApiKey.js";
 import { UPLOAD_ERRORS, DOCUMENT_ERRORS } from "../constants/errors.js";
 import Document from "../models/Document.js";
 
 const router = Router();
+
+router.use(requireApiKey);
 
 router.post("/", upload.single("file"), async (req, res) => {
   try {
@@ -69,7 +72,7 @@ router.get("/:documentId", async (req, res) => {
 router.use((err, req, res, next) => {
   if (err instanceof multer.MulterError) {
     if (err.code === "LIMIT_FILE_SIZE") {
-      return res.status(400).json({
+      return res.status(413).json({
         success: false,
         message: UPLOAD_ERRORS.FILE_TOO_LARGE
       });
