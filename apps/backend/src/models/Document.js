@@ -15,8 +15,8 @@ const documentSchema = new mongoose.Schema({
     },
     currentStep: {
       type: String,
-      enum: ["A", "B", "C"],
-      default: "A"
+      enum: ["TEXT_EXTRACTION", "OCR_PROCESSING", "LLM_PARSING"],
+      default: "TEXT_EXTRACTION"
     }
   },
   extraction: {
