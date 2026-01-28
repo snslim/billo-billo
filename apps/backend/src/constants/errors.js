@@ -19,3 +19,9 @@ export const COMMON_ERRORS = {
   SERVER_ERROR: "서버 내부 오류가 발생했습니다",
   TOO_MANY_REQUESTS: "요청이 너무 많습니다. 잠시 후 다시 시도해주세요"
 };
+
+export const EXTRACTION_ERRORS = {
+  INVALID_FILE_PATH: "유효하지 않은 파일 경로입니다",
+  FILE_NOT_FOUND: "파일을 찾을 수 없습니다",
+  PDF_PARSE_ERROR: "PDF 파싱에 실패했습니다"
+};
