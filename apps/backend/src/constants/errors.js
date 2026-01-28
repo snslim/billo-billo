@@ -23,5 +23,6 @@ export const COMMON_ERRORS = {
 export const EXTRACTION_ERRORS = {
   INVALID_FILE_PATH: "유효하지 않은 파일 경로입니다",
   FILE_NOT_FOUND: "파일을 찾을 수 없습니다",
-  PDF_PARSE_ERROR: "PDF 파싱에 실패했습니다"
+  PDF_PARSE_ERROR: "PDF 파싱에 실패했습니다",
+  OCR_ENGINE_ERROR: "OCR 처리에 실패했습니다"
 };
