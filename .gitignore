@@ -14,3 +14,6 @@ uploads/
 
 # misc
 .DS_Store
+
+# tesseract language data
+*.traineddata
