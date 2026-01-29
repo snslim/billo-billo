@@ -26,3 +26,11 @@ export const EXTRACTION_ERRORS = {
   PDF_PARSE_ERROR: "PDF 파싱에 실패했습니다",
   OCR_ENGINE_ERROR: "OCR 처리에 실패했습니다"
 };
+
+export const PARSING_ERRORS = {
+  EMPTY_TEXT: "파싱할 텍스트가 없습니다",
+  API_KEY_MISSING: "OpenAI API 키가 설정되지 않았습니다",
+  LLM_REQUEST_FAILED: "LLM 요청에 실패했습니다",
+  INVALID_LLM_OUTPUT: "LLM 응답을 파싱할 수 없습니다",
+  INCOMPLETE_FIELDS: "일부 필드를 추출하지 못했습니다"
+};
