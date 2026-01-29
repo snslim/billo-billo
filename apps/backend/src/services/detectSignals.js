@@ -20,11 +20,11 @@ export function detectSignals(text) {
     detected.add(SIGNALS.AMOUNT);
   }
 
-  if (/부가세|세액|vat/.test(lowerText)) {
+  if (/부\s*가\s*세|세\s*액|vat/.test(lowerText)) {
     detected.add(SIGNALS.VAT);
   }
 
-  if (/세금계산서|영수증|invoice/.test(lowerText)) {
+  if (/세\s*금\s*계\s*산\s*서|영\s*수\s*증|invoice/.test(lowerText)) {
     detected.add(SIGNALS.DOC_TYPE);
   }
 
