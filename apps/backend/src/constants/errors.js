@@ -34,3 +34,10 @@ export const PARSING_ERRORS = {
   INVALID_LLM_OUTPUT: "LLM 응답을 파싱할 수 없습니다",
   INCOMPLETE_FIELDS: "일부 필드를 추출하지 못했습니다"
 };
+
+export const PROCESS_ERRORS = {
+  ALREADY_PROCESSED: "이미 처리된 문서입니다. 재처리하려면 force=true를 전달하세요.",
+  MAX_ATTEMPTS_EXCEEDED: "최대 파싱 시도 횟수를 초과했습니다",
+  UNSUPPORTED_FILE_TYPE: "지원하지 않는 파일 형식입니다",
+  EXTRACTION_TEXT_INSUFFICIENT: "추출된 텍스트가 충분하지 않습니다"
+};
